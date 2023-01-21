@@ -1,35 +1,73 @@
 header{
-  background-color: #8b8bcd;
+  height: 72px;
+  background-color: #66cdaa;
   display: flex;
   justify-content: space-between;
 }
 h1{
   color: aliceblue;
-  font-size: 30px;
+  font-size: 24px;
   margin: 25px 16px;
 }
-header a{
-  margin: 36px 16px;
-  font-size: 15px;
+#title{
+  text-decoration: none;
 }
-header a:link{
-  color: aliceblue;
-  text-decoration:none;
-  border-bottom:1px solid aliceblue;
-}
-
-.thread{
-  width: 500px;
-  margin: 0 auto;
+#nav{
+  text-decoration: none;
 }
 h2{
-  margin: 30px 10px;
+  height: 50px;
+  font-size: 16px;
+  border-bottom: 1px solid aliceblue;
+  line-height: 80px;
+  margin: 0 16px 0 0;
+  color: aliceblue;
+}
+
+
+.thread{
+  background-color: #f0e68c;
+  width: 600px;
+  margin: 10px auto;
+  padding: 16px;
+}
+h3{
+  margin: 30px 10px 16px;
   font-size: 20px;
 }
+.thread button{
+  margin-top: 30px;
+}
 .threadList{
+  background-color: aliceblue;
   border:solid 2px #4d4d4d;
-  padding: 0 15px;
+  width: 400px;
+  margin: 0 auto;
 }
 .threadList p{
   font-size: 18px;
+  border-bottom: solid 1px #4d4d4d; 
+  padding-left: 16px;
+}
+.threadList p:last-child{
+  margin-bottom: 0;
+  border-bottom:none;
+}
+
+.newThread{
+  background-color: #f0e68c;
+  width: 500px;
+  height: 200px;
+  margin: 80px auto 0 auto;
+  text-align: center;
+}
+.newThread input{
+  margin-top: 100px;
+  margin-left: 20px;
+}
+.submenu{
+  margin: 36px;
+}
+.submenu button{
+  margin-left: 30px;  
 }
