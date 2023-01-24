@@ -43,6 +43,11 @@
         "jsx-a11y/label-has-associated-control": "off",
         // buttonを属性なしで使う
         "react/button-has-type":"off",
-        "react/self-closing-comp":"off"
+
+        "react/self-closing-comp":"off",
+        "arrow-body-style":"off",
+        "no-undef":"off",
+        "import/no-named-as-default":"off",
+        "react/react-in-jsx-scope":"off"
     }
 }
