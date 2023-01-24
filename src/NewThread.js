@@ -1,13 +1,10 @@
 import * as React from 'react'
-import axios from "axios";
-import { useState } from 'react';
-
+import axios from 'axios'
+import { useState } from 'react'
 
 export const NewThread = () => {
-
-  const [users,setUsers] = useState('')
-  const [inputText,setInputText] = useState('')
-
+  const [users, setUsers] = useState('')
+  const [inputText, setInputText] = useState('')
 
   // setInputTextを使って入力した値を
   // event.target.valueから取り出しinputTextを更新。
@@ -17,23 +14,20 @@ export const NewThread = () => {
 
   // 作成ボタン押下
   const onClickUpdata = () => {
+    axios.post('https://2y6i6tqn41.execute-api.ap-northeast-1.amazonaws.com/threads', {
+      title: inputText,
+    })
+      .then(res => {
+        setUsers(res.data)
+        console.log(res.data)
+      })
 
-  axios.post("https://2y6i6tqn41.execute-api.ap-northeast-1.amazonaws.com/threads", {
-    title: inputText
-  })
-  .then(res => {
-    setUsers(res.data)
-    console.log(res.data)
-  });
-
-  console.log(users);
-  
-  // トップページに戻る
-  return(
-    window.location.href='/'
-  )
-}
-
+    console.log(users)
+    // トップページに戻る
+    return (
+      window.location.href = '/'
+    )
+  }
 
   return (
     <div className='newThread'>

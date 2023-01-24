@@ -1,0 +1,48 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb"
+    ],
+    "overrides": [
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "no-use-before-define": 0,
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "linebreak-style": ["error", "windows"],
+        "import/prefer-default-export": ["off"],
+        // コンソール使えるように
+        "no-console": "off",
+        // シングルクォーテーション
+        "jsx-quotes": ["error", "prefer-single"],
+        // アロー関数をつかえるように
+        "react/function-component-definition": [2,{ "namedComponents": "arrow-function" }],
+        // セミコロンなし
+        "semi": ["error", "never", {"beforeStatementContinuationChars": "never"}],
+        "semi-spacing": ["error", {"after": true, "before": false}],
+        "semi-style": ["error", "first"],
+        "no-extra-semi": "error",
+        "no-unexpected-multiline": "error",
+        "no-unreachable": "error",
+                    //ここまで 
+        // returnの書き方を自由にする
+        "no-return-assign": "off",
+        // アローと括弧を自由に使う
+        "arrow-parens": "off",
+        // labelを自由に使う
+        "jsx-a11y/label-has-associated-control": "off",
+        // buttonを属性なしで使う
+        "react/button-has-type":"off",
+        "react/self-closing-comp":"off"
+    }
+}
