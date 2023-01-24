@@ -18,7 +18,8 @@
     ],
     "rules": {
         "no-use-before-define": 0,
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "react/jsx-filename-extension": [1, {  
+            "extensions": [".js", ".jsx"] }],
         "linebreak-style": ["error", "windows"],
         "import/prefer-default-export": ["off"],
         // コンソール使えるように
@@ -26,10 +27,13 @@
         // シングルクォーテーション
         "jsx-quotes": ["error", "prefer-single"],
         // アロー関数をつかえるように
-        "react/function-component-definition": [2,{ "namedComponents": "arrow-function" }],
+        "react/function-component-definition": [2,{  
+            "namedComponents": "arrow-function" }],
         // セミコロンなし
-        "semi": ["error", "never", {"beforeStatementContinuationChars": "never"}],
-        "semi-spacing": ["error", {"after": true, "before": false}],
+        "semi": ["error", "never", {
+            "beforeStatementContinuationChars": "never"}],
+        "semi-spacing": ["error", {
+            "after": true, "before": false}],
         "semi-style": ["error", "first"],
         "no-extra-semi": "error",
         "no-unexpected-multiline": "error",
