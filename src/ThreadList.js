@@ -2,6 +2,7 @@ import * as React from 'react'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
+
 export const ThreadList = () => {
   const [thread, setThread] = useState([])
 
@@ -17,10 +18,12 @@ export const ThreadList = () => {
   return (
     <div className='thread'>
       <h3>新着スレッド</h3>
+      
       <div className='threadList'>
         {thread.map((s) => {
           return (
-            <p key={s.id}>{s.title}</p>
+            <Link to='submitList' key={s.id} state={{id:s.id}}><p>{s.title}</p>
+            </Link>
           )
         })}
       </div>

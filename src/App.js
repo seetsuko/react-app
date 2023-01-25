@@ -1,23 +1,23 @@
 import * as React from 'react'
 import './App.css'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Routes} from 'react-router-dom'
 import { Header } from './Header'
 import { ThreadList } from './ThreadList'
 import { NewThread } from './NewThread'
+import { SubmitList } from './SubmitList'
+import { NewSubmit } from './NewSubmit'
 
 export const App = () => {
   return (
     <BrowserRouter>
       <div>
         <Header />
-        <Switch>
-          <Route exact path='/'>
-            <ThreadList />
-          </Route>
-          <Route path='/newThread'>
-            <NewThread />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route exact path='/' element={<ThreadList />} /> 
+          <Route path='/newThread' element={<NewThread />} />
+          <Route exact path='submitList' element={<SubmitList />} /> 
+          <Route exact path='newSubmit' element={<NewSubmit />} /> 
+        </Routes>
       </div>
     </BrowserRouter>
   )

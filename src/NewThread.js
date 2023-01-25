@@ -3,26 +3,23 @@ import axios from 'axios'
 import { useState } from 'react'
 
 export const NewThread = () => {
-  const [users, setUsers] = useState('')
-  const [inputText, setInputText] = useState('')
+  const [threadText, setThreadText] = useState('')
 
   // setInputTextを使って入力した値を
   // event.target.valueから取り出しinputTextを更新。
   const handleChange = (e) => {
-    setInputText(e.target.value)
+    setThreadText(e.target.value)
   }
 
   // 作成ボタン押下
   const onClickUpdata = () => {
     axios.post('https://2y6i6tqn41.execute-api.ap-northeast-1.amazonaws.com/threads', {
-      title: inputText,
+      title: threadText,
     })
       .then(res => {
-        setUsers(res.data)
         console.log(res.data)
       })
 
-    console.log(users)
     // トップページに戻る
     return (
       window.location.href = '/'
@@ -32,7 +29,7 @@ export const NewThread = () => {
   return (
     <div className='newThread'>
       <label>スレッドタイトル</label>
-      <input value={inputText} onChange={handleChange}></input>
+      <input value={threadText} onChange={handleChange}></input>
       <div className='submenu'>
         <a href='/'>Topに戻る</a>
         <button onClick={onClickUpdata}>作成</button>
