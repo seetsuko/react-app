@@ -83,8 +83,8 @@ h3{
   width: 400px;
   margin: 0 auto;
 }
-.res p{
-  font-size: 12px;
+.text{
+  font-size: 14px;
   border-bottom: solid 1px #4d4d4d; 
   padding-left: 16px;
 }

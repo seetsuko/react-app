@@ -43,7 +43,7 @@ export const SubmitList = () => {
   // レスが無い時とあるときで表示を変える
   const list = () =>{
     if(error === null){
-      return <p>レスがありません</p>
+      return <div className='text'><p>レスがありません</p></div>
     }else{
       return  resList.map((s,index) => 
         <p key={s.id}>{s.post}</p>
