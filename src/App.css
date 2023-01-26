@@ -47,10 +47,12 @@ h3{
 }
 .threadList p{
   font-size: 18px;
-  border-bottom: solid 1px #4d4d4d; 
   padding-left: 16px;
 }
-.threadList p:last-child{
+.threadList div{
+  border-bottom: solid 1px #4d4d4d; 
+}
+.threadList div:last-child{
   margin-bottom: 0;
   border-bottom:none;
 }
@@ -85,4 +87,21 @@ h3{
   font-size: 12px;
   border-bottom: solid 1px #4d4d4d; 
   padding-left: 16px;
+}
+.res p:last-child{
+  margin-bottom: 0;
+  border-bottom:none;
+}
+.submit{
+  margin: 30px auto;
+  text-align: center;
+}
+textarea{
+  font-size: 12px;
+  height: 100px;
+  width: 200px;
+  padding: 12px;
+}
+.submit button{
+  margin: 16px;
 }
