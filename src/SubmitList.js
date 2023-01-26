@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import axios from 'axios'
 
-
 export const SubmitList = () => {
 
   const { state } = useLocation()
@@ -42,12 +41,15 @@ export const SubmitList = () => {
     }
 
   // レスが無い時とあるときで表示を変える
-  const test1 = () =>{
+  const list = () =>{
     if(error === null){
-      return <p>レスがありません</p>
+      return <div className='text'><p>レスがありません</p></div>
     }else{
-      return  resList.map((s) => 
-        <p key={s.id}>{s.post}</p>)
+      return  resList.map((s,index) => 
+      <div className='text'>
+        <p className='id' key={s.id}>{index+1}</p>
+        <p >{s.post}</p>
+      </div>)
     }
   }
   console.log(resList)
@@ -56,10 +58,12 @@ export const SubmitList = () => {
     <div className='thread'>
       <h3>{title}</h3>
       <div className='res'>
-        {test1()}
+        {list()}
       </div>
-      <textarea value={text} onChange={handleChange}></textarea>
-      <button onClick={onClickUpdata}>作成</button>
+      <div className='submit'>
+        <textarea value={text} onChange={handleChange}></textarea><br/>
+        <button onClick={onClickUpdata}>投稿する</button>
+      </div>
     </div>
   )
 }

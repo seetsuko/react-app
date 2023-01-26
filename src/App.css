@@ -46,11 +46,13 @@ h3{
   margin: 0 auto;
 }
 .threadList p{
-  font-size: 18px;
-  border-bottom: solid 1px #4d4d4d; 
+  font-size: 18px; 
   padding-left: 16px;
 }
-.threadList p:last-child{
+.threadList div{
+  border-bottom: solid 1px #4d4d4d; 
+}
+.threadList div:last-child{
   margin-bottom: 0;
   border-bottom:none;
 }
@@ -81,8 +83,31 @@ h3{
   width: 400px;
   margin: 0 auto;
 }
-.res p{
-  font-size: 12px;
+.text{
+  font-size: 14px;
   border-bottom: solid 1px #4d4d4d; 
-  padding-left: 16px;
+  padding: 5px 16px;
+  margin-top: 8px;
+  height: 100px;
+}
+.text:last-child{
+  margin-bottom: 0;
+  border-bottom:none;
+}
+.id{
+  font-size: 10px;
+  margin: 0;
+}
+.submit{
+  margin: 30px auto;
+  text-align: center;
+}
+textarea{
+  font-size: 12px;
+  height: 100px;
+  width: 200px;
+  padding: 12px;
+}
+.submit button{
+  margin: 16px;
 }
