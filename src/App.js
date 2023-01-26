@@ -5,7 +5,7 @@ import { Header } from './Header'
 import { ThreadList } from './ThreadList'
 import { NewThread } from './NewThread'
 import { SubmitList } from './SubmitList'
-import { NewSubmit } from './NewSubmit'
+
 
 export const App = () => {
   return (
@@ -16,7 +16,6 @@ export const App = () => {
           <Route exact path='/' element={<ThreadList />} /> 
           <Route path='/newThread' element={<NewThread />} />
           <Route exact path='submitList' element={<SubmitList />} /> 
-          <Route exact path='newSubmit' element={<NewSubmit />} /> 
         </Routes>
       </div>
     </BrowserRouter>
