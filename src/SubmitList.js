@@ -7,7 +7,8 @@ import axios from 'axios'
 export const SubmitList = () => {
 
   const { state } = useLocation()
-  const urlId = state.id
+  const urlId = state.threadData.id
+  const title = state.threadData.title
   const [resList, setResList] = useState([])
   const [text, setText] = useState('')
   const [error,setError] = useState()
@@ -53,7 +54,7 @@ export const SubmitList = () => {
   console.log(error)
   return (
     <div className='thread'>
-      <h3>新着レス</h3>
+      <h3>{title}</h3>
       <div className='res'>
         {test1()}
       </div>
