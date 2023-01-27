@@ -23,8 +23,8 @@ export const ThreadList = () => {
       <div className='threadList'>
         {thread.map((s) => {
           return (
-            <div>
-              <Link to='submitList' key={s.id} state={{threadData:s}}><p>{s.title}</p>
+            <div key={s.id} >
+              <Link to='submitList' state={{threadData:s}}><p>{s.title}</p>
               </Link>
             </div>
           )

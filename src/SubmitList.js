@@ -3,16 +3,22 @@ import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import axios from 'axios'
 
-// 投稿リストコンポーネント
 export const SubmitList = () => {
+
   const { state } = useLocation()
-  const url = `https://2y6i6tqn41.execute-api.ap-northeast-1.amazonaws.com/threads/${state.threadData.id}/posts`
+  const urlId = state.threadData.id
+  const title = state.threadData.title
+
   // 投稿一覧のstate
   const [resList, setResList] = useState([])
-  // mapエラー回避のstate
+  // 入力内容のstate
+  const [text, setText] = useState('')
+  // mapエラー回避state
   const [error,setError] = useState()
-  
-  // API取得
+
+  const url = `https://2y6i6tqn41.execute-api.ap-northeast-1.amazonaws.com/threads/${urlId}/posts`
+
+  console.log(url)
   useEffect(() => {
     fetch(url)
       .then(res => res.json())
@@ -22,41 +28,36 @@ export const SubmitList = () => {
       })
   }, [])
 
-  // 投稿ボタンでtext内容をAPIに送る
-  const [text, setText] = useState('')
-
+  // 入力内容をstateに格納
   const handleChange = (e) => {
     setText(e.target.value)
   }
 
+  // ボタン押下でAPIにPOST
   const onClickUpdata = () => {
     axios.post(url, {
       "post": text,
-      })
+    })
       .then(res => {
         console.log(res.data)
       })
-       // 投稿一覧ページ更新
+       // トップページに戻る
       return (
       window.location.href = '/submitList'
     )
     }
 
-  // 投稿が無い時のmapエラー回避
+  // レスが無い時のmapエラーを回避する
   const list = () =>{
     if(error === null){
-      return (
-        <div className='text'>
-          <p>レスはありません</p>
-        </div>)
-      }else{
-        return resList.map((s) => 
-          <p key={s.id}>{s.post}</p>)
-      }
-    }
+      return <div className='text'><p>レスがありません</p></div>
+    }else{
+      return  resList.map((s) => 
+        <p key={s.id}>{s.post}</p>
+      )
+    }}
   console.log(resList)
   console.log(error)
-  const title = state.threadData.title
 
   return (
     <div className='thread'>
