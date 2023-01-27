@@ -15,7 +15,7 @@ export const App = () => {
         <Routes>
           <Route exact path='/' element={<ThreadList />} /> 
           <Route path='/newThread' element={<NewThread />} />
-          <Route exact path='submitList' element={<SubmitList />} /> 
+          <Route exact path='/submitList/:id' element={<SubmitList />} /> 
         </Routes>
       </div>
     </BrowserRouter>

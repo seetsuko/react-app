@@ -10,11 +10,9 @@ export const SubmitList = () => {
   const title = state.threadData.title
 
   // 投稿一覧のstate
-  const [resList, setResList] = useState([])
+  const [postList, setPostList] = useState([])
   // 入力内容のstate
   const [text, setText] = useState('')
-  // mapエラー回避state
-  const [error,setError] = useState()
 
   const url = `https://2y6i6tqn41.execute-api.ap-northeast-1.amazonaws.com/threads/${urlId}/posts`
 
@@ -22,10 +20,9 @@ export const SubmitList = () => {
   useEffect(() => {
     fetch(url)
       .then(res => res.json())
-      .then(data => {
-        setError(data.posts)
-        setResList(Object(data.posts))  
-      })
+      .then(data => 
+        setPostList(Object(data.posts))
+      )
   }, [])
 
   // 入力内容をstateに格納
@@ -34,30 +31,31 @@ export const SubmitList = () => {
   }
 
   // ボタン押下でAPIにPOST
-  const onClickUpdata = () => {
+  const onClickUpdate = () => {
+    if(text.length>=1){    
     axios.post(url, {
       "post": text,
     })
       .then(res => {
         console.log(res.data)
       })
-       // トップページに戻る
-      return (
-      window.location.href = '/submitList'
-    )
+      return  window.location.href = `/submitList/${urlId}`
+    }else{
+      alert('投稿内容が入力されていません')
+    } 
+    }
+    // 投稿があれば表示
+    const list = () =>{
+      if(postList.length>=1){
+        return  postList.map((s) => 
+      <p key={s.id}>{s.post}</p>)
+      }
+      else{
+        return <div className='text'><p>投稿がありません</p></div>
+      }
     }
 
-  // レスが無い時のmapエラーを回避する
-  const list = () =>{
-    if(error === null){
-      return <div className='text'><p>レスがありません</p></div>
-    }else{
-      return  resList.map((s) => 
-        <p key={s.id}>{s.post}</p>
-      )
-    }}
-  console.log(resList)
-  console.log(error)
+  console.log(postList)
 
   return (
     <div className='thread'>
@@ -67,7 +65,7 @@ export const SubmitList = () => {
       </div>
       <div className='submit'>
         <textarea value={text} onChange={handleChange}></textarea><br/>
-        <button onClick={onClickUpdata}>投稿する</button>
+        <button onClick={onClickUpdate}>投稿する</button>
       </div>
     </div>
   )
