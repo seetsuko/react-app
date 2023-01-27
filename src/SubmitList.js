@@ -3,17 +3,16 @@ import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import axios from 'axios'
 
+// 投稿リストコンポーネント
 export const SubmitList = () => {
-
   const { state } = useLocation()
-  const urlId = state.threadData.id
-  const title = state.threadData.title
+  const url = `https://2y6i6tqn41.execute-api.ap-northeast-1.amazonaws.com/threads/${state.threadData.id}/posts`
+  // 投稿一覧のstate
   const [resList, setResList] = useState([])
-  const [text, setText] = useState('')
+  // mapエラー回避のstate
   const [error,setError] = useState()
-  const url = `https://2y6i6tqn41.execute-api.ap-northeast-1.amazonaws.com/threads/${urlId}/posts`
-
-  console.log(urlId)
+  
+  // API取得
   useEffect(() => {
     fetch(url)
       .then(res => res.json())
@@ -23,6 +22,9 @@ export const SubmitList = () => {
       })
   }, [])
 
+  // 投稿ボタンでtext内容をAPIに送る
+  const [text, setText] = useState('')
+
   const handleChange = (e) => {
     setText(e.target.value)
   }
@@ -30,28 +32,32 @@ export const SubmitList = () => {
   const onClickUpdata = () => {
     axios.post(url, {
       "post": text,
-    })
+      })
       .then(res => {
         console.log(res.data)
       })
-       // トップページに戻る
+       // 投稿一覧ページ更新
       return (
       window.location.href = '/submitList'
     )
     }
 
-  // レスが無い時とあるときで表示を変える
+  // 投稿が無い時のmapエラー回避
   const list = () =>{
     if(error === null){
-      return <div className='text'><p>レスがありません</p></div>
-    }else{
-      return  resList.map((s,index) => 
-        <p key={s.id}>{s.post}</p>
-      )
+      return (
+        <div className='text'>
+          <p>レスはありません</p>
+        </div>)
+      }else{
+        return resList.map((s) => 
+          <p key={s.id}>{s.post}</p>)
+      }
     }
-  }
   console.log(resList)
   console.log(error)
+  const title = state.threadData.title
+
   return (
     <div className='thread'>
       <h3>{title}</h3>

@@ -2,10 +2,11 @@ import * as React from 'react'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-
+// スレッド一覧コンポーネント
 export const ThreadList = () => {
   const [thread, setThread] = useState([])
 
+  // API取得
   useEffect(() => {
     fetch('https://2y6i6tqn41.execute-api.ap-northeast-1.amazonaws.com/threads')
       .then(res => res.json())

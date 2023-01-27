@@ -2,11 +2,11 @@ import * as React from 'react'
 import axios from 'axios'
 import { useState } from 'react'
 
+// スレッド作成コンポーネント
 export const NewThread = () => {
   const [threadText, setThreadText] = useState('')
 
-  // setInputTextを使って入力した値を
-  // event.target.valueから取り出しinputTextを更新。
+  // setInputTextを使って入力した値を、event.target.valueから取り出しinputTextを更新。
   const handleChange = (e) => {
     setThreadText(e.target.value)
   }
