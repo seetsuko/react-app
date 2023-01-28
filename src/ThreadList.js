@@ -24,7 +24,7 @@ export const ThreadList = () => {
         {thread.map((s) => {
           return (
             <div key={s.id} >
-              <Link to={`submitList/${s.id}`} state={{threadData:s}}><p>{s.title}</p></Link>
+              <Link to={`thread/${s.id}`} state={{threadData:s}}><p>{s.title}</p></Link>
             </div>
           )
         })}

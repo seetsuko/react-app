@@ -1,6 +1,7 @@
 import * as React from 'react'
 import axios from 'axios'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 // スレッド作成コンポーネント
 export const NewThread = () => {
@@ -19,11 +20,6 @@ export const NewThread = () => {
       .then(res => {
         console.log(res.data)
       })
-
-    // トップページに戻る
-    return (
-      window.location.href = '/'
-    )
   }
 
   return (
@@ -32,7 +28,7 @@ export const NewThread = () => {
       <input value={threadText} onChange={handleChange}></input>
       <div className='submenu'>
         <a href='/'>Topに戻る</a>
-        <button onClick={onClickUpdata}>作成</button>
+        <Link to='/'><button onClick={onClickUpdata}>作成</button></Link>
       </div>
     </div>
   )
